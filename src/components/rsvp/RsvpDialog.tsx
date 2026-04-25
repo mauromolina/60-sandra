@@ -25,10 +25,7 @@ export const RsvpDialog = ({ isOpen, onClose, invitee }: RsvpDialogProps) => {
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="bg-cream border border-gold/20 shadow-xl shadow-gold/5 max-w-sm mx-auto p-6 rounded-2xl">
         <div className="text-center mb-2">
-          <h2
-            className="italic text-3xl md:text-4xl text-charcoal mb-3"
-            style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 48, 'wght' 500" }}
-          >
+          <h2 className="font-serif italic text-3xl md:text-4xl text-charcoal font-semibold mb-3">
             {COPY.rsvp.title}
           </h2>
           <GoldDivider />

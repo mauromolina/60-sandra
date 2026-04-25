@@ -14,9 +14,9 @@ export const COPY = {
   },
   dateTime: {
     label: "Fecha y hora",
-    date: "sábado 22 de mayo",
+    date: "sábado 30 de mayo",
     year: "2026",
-    time: "21:00 HS",
+    time: "21:30 HS",
   },
   venue: {
     label: "Lugar",
@@ -72,7 +72,7 @@ export const COPY = {
     dietaryPlaceholder: "Celíaco, vegetariano, etc.",
     submitButton: "Confirmar asistencia",
     successTitle: "¡Confirmado!",
-    successMessage: "Te esperamos el 22 de mayo. ¡Va a ser una gran noche!",
+    successMessage: "Te esperamos el 30 de mayo. ¡Va a ser una gran noche!",
     declineMessage: "¡Qué lástima! Te vamos a extrañar.",
     whatsappButton: "Confirmar por WhatsApp",
   },

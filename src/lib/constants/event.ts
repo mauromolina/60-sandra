@@ -1,5 +1,5 @@
 export const EVENT_DATE = new Date(
-  process.env.NEXT_PUBLIC_EVENT_DATE || "2026-05-22T21:00:00-03:00",
+  process.env.NEXT_PUBLIC_EVENT_DATE || "2026-05-30T21:30:00-03:00",
 );
 
 export const VENUE = {

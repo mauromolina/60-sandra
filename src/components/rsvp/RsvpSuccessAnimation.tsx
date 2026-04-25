@@ -67,8 +67,7 @@ export const RsvpSuccessAnimation = ({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="italic text-2xl text-gold"
-            style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 36" }}
+            className="font-serif italic text-2xl text-gold font-semibold"
           >
             {COPY.rsvp.successTitle}
           </motion.h4>

@@ -17,8 +17,7 @@ export const CountdownCell = ({ value, label, className }: CountdownCellProps) =
       )}
     >
       <span
-        className="text-4xl md:text-5xl text-gold tabular-nums leading-none"
-        style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 72, 'wght' 700" }}
+        className="font-serif text-4xl md:text-5xl text-gold font-bold tabular-nums leading-none"
         suppressHydrationWarning
       >
         {value.toString().padStart(2, "0")}
