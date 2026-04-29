@@ -1,14 +1,16 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
+import { Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { COPY } from "@/lib/constants/copy";
-import type { ContributedSong, ContributionStatus } from "@/lib/types/Song";
+import type { ContributedSong } from "@/lib/types/Song";
 
 export default function AdminSongsPage() {
   const [songs, setSongs] = useState<ContributedSong[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
   const didFetch = useRef(false);
 
   const fetchSongs = useCallback(async () => {
@@ -41,13 +43,20 @@ export default function AdminSongsPage() {
     fetchData();
   }, []);
 
-  const updateStatus = async (id: string, status: ContributionStatus) => {
-    await fetch(`/api/songs`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, status }),
-    });
-    await fetchSongs();
+  const deleteSong = async (id: string) => {
+    setDeletingId(id);
+    try {
+      await fetch("/api/songs", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
+      setSongs((prev) => prev.filter((s) => s.id !== id));
+    } catch {
+      await fetchSongs();
+    } finally {
+      setDeletingId(null);
+    }
   };
 
   if (isLoading) {
@@ -88,48 +97,28 @@ export default function AdminSongsPage() {
               </p>
             )}
           </div>
-          <div className="flex flex-col gap-2 flex-shrink-0">
-            <span
-              className={`font-sans text-[10px] px-2 py-0.5 rounded-full text-center ${
-                song.status === "approved"
-                  ? "bg-sage/10 text-sage-dark"
-                  : song.status === "rejected"
-                    ? "bg-red-50 text-red-600"
-                    : "bg-gold/10 text-gold"
-              }`}
-            >
-              {song.status === "approved"
-                ? COPY.admin.approved
-                : song.status === "rejected"
-                  ? COPY.admin.rejected
-                  : COPY.admin.pending}
-            </span>
-            {song.status === "pending" && (
-              <div className="flex gap-1">
-                <Button
-                  size="sm"
-                  onClick={() => updateStatus(song.id, "approved")}
-                  className="bg-sage hover:bg-sage-dark text-white text-xs h-7 px-2"
-                >
-                  {COPY.admin.approve}
-                </Button>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => updateStatus(song.id, "rejected")}
-                  className="text-xs h-7 px-2 border-red-200 text-red-600 hover:bg-red-50"
-                >
-                  {COPY.admin.reject}
-                </Button>
-              </div>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => deleteSong(song.id)}
+            disabled={deletingId === song.id}
+            className="text-xs h-7 px-2 border-red-200 text-red-600 hover:bg-red-50 flex-shrink-0"
+          >
+            {deletingId === song.id ? (
+              <LoadingSpinner size="sm" />
+            ) : (
+              <>
+                <Trash2 className="h-3 w-3 mr-1" />
+                {COPY.admin.delete}
+              </>
             )}
-          </div>
+          </Button>
         </div>
       ))}
 
       {songs.length === 0 && (
         <p className="text-center font-sans text-sm text-warm-gray py-8">
-          No hay canciones todavia.
+          No hay canciones todavía.
         </p>
       )}
     </div>

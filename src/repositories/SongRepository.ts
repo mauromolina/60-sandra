@@ -26,6 +26,7 @@ export const SongRepository = {
         preview_url: input.previewUrl,
         contributor_name: input.contributorName,
         message: input.message,
+        status: "approved",
       })
       .select()
       .single();
@@ -46,12 +47,12 @@ export const SongRepository = {
     return (data ?? []).map(mapRowToSong);
   },
 
-  async updateStatus(id: string, status: "approved" | "rejected"): Promise<void> {
+  async delete(id: string): Promise<void> {
     const { createAdminClient } = await import("@/lib/supabase/admin");
     const supabase = createAdminClient();
     const { error } = await supabase
       .from("song_contributions")
-      .update({ status })
+      .delete()
       .eq("id", id);
 
     if (error) throw new Error(error.message);

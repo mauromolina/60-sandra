@@ -28,14 +28,15 @@ export const COPY = {
   },
   spotify: {
     label: "Música",
-    title: "Dejale una canción a Sandra",
+    sectionTitle: "Dedicale una canción a Sandra",
+    title: "Sumá tu canción",
     subtitle:
-      "Buscá una canción que te haga acordar a ella, o que quieras que suene esa noche. Podés dejarle un mensaje también.",
+      "Elegí una canción que te haga acordar a ella o que quieras que suene en su fiesta. ¡Podés dejarle un mensaje también!",
     searchPlaceholder: "Buscar canción o artista...",
     contributorPlaceholder: "Tu nombre",
-    messagePlaceholder: "Un mensaje para Sandra (opcional)",
-    submitButton: "Enviar canción",
-    successMessage: "¡Gracias! Tu canción fue enviada.",
+    messagePlaceholder: "Dejale un mensaje a Sandra sobre esta canción...",
+    submitButton: "Sumar a la playlist",
+    successMessage: "¡Tu canción fue agregada a la playlist!",
     contributedTitle: "Canciones dedicadas",
     emptyState: "Sé el primero en dedicar una canción.",
   },
@@ -91,5 +92,6 @@ export const COPY = {
     pending: "Pendiente",
     approved: "Aprobada",
     rejected: "Rechazada",
+    delete: "Eliminar",
   },
 } as const;

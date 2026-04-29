@@ -12,7 +12,7 @@ export const SongResultList = ({ results, onSelect }: SongResultListProps) => {
   if (results.length === 0) return null;
 
   return (
-    <div className="mt-2 max-h-64 overflow-y-auto rounded-xl border border-gold/10 bg-white/90 backdrop-blur-sm divide-y divide-gold/5">
+    <div className="mt-3 max-h-64 overflow-y-auto rounded-2xl border border-gray-200 bg-white divide-y divide-gray-100">
       {results.map((track) => (
         <SongResultItem key={track.id} track={track} onSelect={onSelect} />
       ))}

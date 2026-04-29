@@ -5,10 +5,26 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { COPY } from "@/lib/constants/copy";
 
 const PHOTOS = [
-  { year: "1965", gradient: "from-neutral-400 to-neutral-600", rotation: "-rotate-3" },
-  { year: "1985", gradient: "from-amber-200 to-amber-400", rotation: "rotate-2" },
-  { year: "2000", gradient: "from-emerald-300 to-emerald-500", rotation: "-rotate-2" },
-  { year: "2026", gradient: "from-sky-300 to-indigo-500", rotation: "rotate-3" },
+  {
+    year: "1966",
+    gradient: "from-neutral-400 to-neutral-600",
+    rotation: "-rotate-3",
+  },
+  {
+    year: "1985",
+    gradient: "from-amber-200 to-amber-400",
+    rotation: "rotate-2",
+  },
+  {
+    year: "2000",
+    gradient: "from-emerald-300 to-emerald-500",
+    rotation: "-rotate-2",
+  },
+  {
+    year: "2026",
+    gradient: "from-sky-300 to-indigo-500",
+    rotation: "rotate-3",
+  },
 ];
 
 const staggerContainer = {
@@ -38,7 +54,10 @@ export const TimelineSection = () => {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="italic text-3xl md:text-4xl text-gold mb-10"
-        style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 72" }}
+        style={{
+          fontFamily: "var(--font-bodoni)",
+          fontVariationSettings: "'opsz' 72",
+        }}
       >
         {COPY.timeline.label}
       </motion.h2>
@@ -58,9 +77,7 @@ export const TimelineSection = () => {
             <div
               className={`aspect-square bg-gradient-to-br ${photo.gradient} rounded-sm`}
             />
-            <p
-              className="mt-3 font-serif text-sm italic text-warm-gray tracking-wide"
-            >
+            <p className="mt-3 font-serif text-sm italic text-warm-gray tracking-wide">
               {photo.year}
             </p>
           </motion.div>

@@ -17,29 +17,16 @@ export async function GET(): Promise<NextResponse<ApiResponse<ContributedSong[]>
   }
 }
 
-export async function PATCH(
-  request: NextRequest
-): Promise<NextResponse<ApiResponse<null>>> {
-  try {
-    const body = await request.json();
-    const { id, status } = body as { id: string; status: "approved" | "rejected" };
-    await SongRepository.updateStatus(id, status);
-    return NextResponse.json({ success: true, data: null });
-  } catch {
-    return NextResponse.json(
-      { success: false, error: "Failed to update song status" },
-      { status: 500 }
-    );
-  }
-}
-
 export async function POST(
   request: NextRequest
 ): Promise<NextResponse<ApiResponse<ContributedSong>>> {
   try {
     const body = await request.json();
     const validated = songContributionSchema.parse(body);
-    const song = await SongRepository.create(validated);
+    const song = await SongRepository.create({
+      ...validated,
+      previewUrl: validated.previewUrl ?? null,
+    });
     return NextResponse.json({ success: true, data: song }, { status: 201 });
   } catch (err) {
     const message =
@@ -47,6 +34,28 @@ export async function POST(
     return NextResponse.json(
       { success: false, error: message },
       { status: 400 }
+    );
+  }
+}
+
+export async function DELETE(
+  request: NextRequest
+): Promise<NextResponse<ApiResponse<null>>> {
+  try {
+    const body = await request.json();
+    const { id } = body as { id: string };
+    if (!id) {
+      return NextResponse.json(
+        { success: false, error: "Missing song id" },
+        { status: 400 }
+      );
+    }
+    await SongRepository.delete(id);
+    return NextResponse.json({ success: true, data: null });
+  } catch {
+    return NextResponse.json(
+      { success: false, error: "Failed to delete song" },
+      { status: 500 }
     );
   }
 }

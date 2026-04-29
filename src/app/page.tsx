@@ -21,7 +21,7 @@ export default function HomePage() {
       <DressCodeSection />
       <TimelineSection />
       <FamilyMessageSection />
-      {/* <SpotifySection /> */}
+      <SpotifySection />
       {/* <GallerySection /> */}
       {/* <PhotoUploadSection /> */}
       <RsvpSection />

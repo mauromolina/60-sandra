@@ -22,6 +22,8 @@
   --color-charcoal: #2C2C2C;
   --color-charcoal-light: #4A4A4A;
   --color-warm-gray: #8E8E8E;
+  --color-spotify-green: #1DB954;
+  --color-spotify-green-hover: #1ed760;
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -83,6 +85,14 @@
 }
 
 @layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   .text-gradient-gold {
     background: linear-gradient(135deg, #D4AF37, #B8963E, #C9A84C);
     -webkit-background-clip: text;
