@@ -6,24 +6,28 @@ import { COPY } from "@/lib/constants/copy";
 
 const PHOTOS = [
   {
-    year: "1966",
-    gradient: "from-neutral-400 to-neutral-600",
+    year: "1978",
+    src: "/photos/1.jpeg",
     rotation: "-rotate-3",
+    position: "center 20%",
   },
   {
-    year: "1985",
-    gradient: "from-amber-200 to-amber-400",
+    year: "1990",
+    src: "/photos/2.jpeg",
     rotation: "rotate-2",
+    position: "center 15%",
   },
   {
-    year: "2000",
-    gradient: "from-emerald-300 to-emerald-500",
+    year: "2016",
+    src: "/photos/5.jpg",
     rotation: "-rotate-2",
+    position: "30% 20%",
   },
   {
     year: "2026",
-    gradient: "from-sky-300 to-indigo-500",
+    src: "/photos/4.jpeg",
     rotation: "rotate-3",
+    position: "center 15%",
   },
 ];
 
@@ -74,8 +78,11 @@ export const TimelineSection = () => {
             variants={polaroidVariant}
             className={`bg-white rounded-sm p-2.5 pb-8 shadow-lg shadow-charcoal/10 ${photo.rotation}`}
           >
-            <div
-              className={`aspect-square bg-gradient-to-br ${photo.gradient} rounded-sm`}
+            <img
+              src={photo.src}
+              alt={photo.year}
+              className="aspect-square object-cover rounded-sm"
+              style={{ objectPosition: photo.position }}
             />
             <p className="mt-3 font-serif text-sm italic text-warm-gray tracking-wide">
               {photo.year}

@@ -24,17 +24,17 @@ export const COPY = {
   },
   dressCode: {
     label: "Dress Code",
-    description: "Elegante Sport — Tonos claros y pasteles",
+    description: "Elegante Sport",
   },
   spotify: {
     label: "Música",
-    sectionTitle: "Dedicale una canción a Sandra",
+    sectionTitle: "Dedicale una canción a {name}",
     title: "Sumá tu canción",
     subtitle:
       "Elegí una canción que te haga acordar a ella o que quieras que suene en su fiesta. ¡Podés dejarle un mensaje también!",
     searchPlaceholder: "Buscar canción o artista...",
     contributorPlaceholder: "Tu nombre",
-    messagePlaceholder: "Dejale un mensaje a Sandra sobre esta canción...",
+    messagePlaceholder: "Dejale un mensaje a {name} sobre esta canción...",
     submitButton: "Sumar a la playlist",
     successMessage: "¡Tu canción fue agregada a la playlist!",
     contributedTitle: "Canciones dedicadas",
@@ -46,11 +46,11 @@ export const COPY = {
   familyMessage: {
     label: "Un mensaje de la familia",
     message:
-      "Queremos compartir este momento tan especial con todos los que son parte de la vida de Sandra. ¡Los esperamos para festejar juntos!",
+      "Queremos compartir este momento tan especial con todos los que son parte de la vida de {name}. ¡Los esperamos para festejar juntos!",
   },
   photoUpload: {
     label: "Galería colaborativa",
-    title: "Compartí tus fotos con Sandra",
+    title: "Compartí tus fotos con {name}",
     subtitle: "Subí fotos de momentos juntos para armar un álbum sorpresa.",
     uploadButton: "Subir foto",
     nameLabel: "Tu nombre",
@@ -71,7 +71,7 @@ export const COPY = {
     companionsLabel: "¿Con cuántos acompañantes venís?",
     dietaryLabel: "¿Alguna restricción alimentaria?",
     dietaryPlaceholder: "Celíaco, vegetariano, etc.",
-    submitButton: "Confirmar asistencia",
+    submitButton: "Responder invitación",
     successTitle: "¡Confirmado!",
     successMessage: "Te esperamos el 30 de mayo. ¡Va a ser una gran noche!",
     declineMessage: "¡Qué lástima! Te vamos a extrañar.",
@@ -79,7 +79,7 @@ export const COPY = {
   },
   footer: {
     madeWith: "Hecho con",
-    forSandra: "para Sandra",
+    forCelebrant: "para {name}",
     addToCalendar: "Agregar al calendario",
   },
   admin: {

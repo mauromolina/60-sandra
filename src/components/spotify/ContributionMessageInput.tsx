@@ -5,6 +5,8 @@ import { X } from "lucide-react";
 import { SpotifyEmbed } from "./SpotifyEmbed";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { COPY } from "@/lib/constants/copy";
+import { useCelebrantName } from "@/contexts/CelebrantContext";
+import { withName } from "@/lib/utils/copyUtils";
 import type { SpotifyTrack, SongContributionInput } from "@/lib/types/Song";
 
 interface ContributionMessageInputProps {
@@ -20,6 +22,7 @@ export const ContributionMessageInput = ({
   onCancel,
   isSubmitting,
 }: ContributionMessageInputProps) => {
+  const celebrantName = useCelebrantName();
   const [contributorName, setContributorName] = useState("");
   const [message, setMessage] = useState("");
 
@@ -79,7 +82,7 @@ export const ContributionMessageInput = ({
 
       {/* Message textarea */}
       <textarea
-        placeholder={COPY.spotify.messagePlaceholder}
+        placeholder={withName(COPY.spotify.messagePlaceholder, celebrantName)}
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         rows={3}

@@ -1,14 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarPlus } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { GoldHeart } from "@/components/ui/GoldHeart";
 import { FloralOrnament } from "@/components/ui/FloralOrnament";
 import { COPY } from "@/lib/constants/copy";
-import { downloadIcsFile } from "@/lib/utils/generateIcsFile";
+import { useCelebrantName } from "@/contexts/CelebrantContext";
+import { withName } from "@/lib/utils/copyUtils";
 
 export const FooterSection = () => {
+  const celebrantName = useCelebrantName();
   const { ref, isInView } = useScrollAnimation();
 
   return (
@@ -21,18 +22,10 @@ export const FooterSection = () => {
     >
       <FloralOrnament variant="divider" className="mx-auto mb-6 opacity-50" />
 
-      <button
-        onClick={downloadIcsFile}
-        className="inline-flex items-center gap-2 font-sans text-sm text-gold hover:text-gold-light transition-colors underline underline-offset-4 mb-8"
-      >
-        <CalendarPlus className="h-4 w-4" />
-        {COPY.footer.addToCalendar}
-      </button>
-
       <div className="flex items-center justify-center gap-1.5 text-warm-gray text-xs font-sans">
         <span>{COPY.footer.madeWith}</span>
         <GoldHeart size={14} className="text-gold/60" />
-        <span>{COPY.footer.forSandra}</span>
+        <span>{withName(COPY.footer.forCelebrant, celebrantName)}</span>
       </div>
     </motion.footer>
   );

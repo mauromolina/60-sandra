@@ -11,8 +11,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { usePhotoUpload } from "@/hooks/usePhotoUpload";
 import { COPY } from "@/lib/constants/copy";
+import { useCelebrantName } from "@/contexts/CelebrantContext";
+import { withName } from "@/lib/utils/copyUtils";
 
 export const PhotoUploadSection = () => {
+  const celebrantName = useCelebrantName();
   const [contributorName, setContributorName] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const { upload, isUploading, isSuccess, error } = usePhotoUpload();
@@ -42,7 +45,7 @@ export const PhotoUploadSection = () => {
       <div className="max-w-md mx-auto">
         <Camera className="h-8 w-8 text-gold mx-auto mb-4" />
         <h3 className="font-serif text-2xl md:text-3xl text-charcoal mb-2">
-          {COPY.photoUpload.title}
+          {withName(COPY.photoUpload.title, celebrantName)}
         </h3>
         <p className="font-sans text-sm text-charcoal-light mb-8">
           {COPY.photoUpload.subtitle}

@@ -9,6 +9,7 @@ import { EVENT_INFO } from "@/lib/constants/event";
 
 interface HeroSectionProps {
   inviteeName?: string;
+  celebrantAlias?: string;
 }
 
 const fadeUp = {
@@ -28,10 +29,11 @@ const fadeIn = {
   },
 };
 
-export const HeroSection = ({ inviteeName }: HeroSectionProps) => {
+export const HeroSection = ({ inviteeName, celebrantAlias }: HeroSectionProps) => {
   const greeting = inviteeName
     ? `${COPY.hero.preTitle}, ${inviteeName}`
     : COPY.hero.preTitle;
+  const displayName = celebrantAlias || EVENT_INFO.celebrantName;
 
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen px-6 py-20 text-center overflow-hidden">
@@ -69,12 +71,19 @@ export const HeroSection = ({ inviteeName }: HeroSectionProps) => {
           },
         }}
       >
-        <motion.p
-          variants={fadeUp}
-          className="font-sans text-[11px] uppercase tracking-[0.35em] text-warm-gray mb-14 md:mb-16"
-        >
-          {greeting}
-        </motion.p>
+        <motion.div variants={fadeUp} className="mb-14 md:mb-16">
+          <p className="font-sans text-[11px] uppercase tracking-[0.35em] text-warm-gray">
+            {COPY.hero.preTitle}
+          </p>
+          {inviteeName && (
+            <p
+              className="mt-2 text-2xl md:text-3xl italic text-gold/80 tracking-wide"
+              style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 72", fontWeight: 700 }}
+            >
+              {inviteeName}
+            </p>
+          )}
+        </motion.div>
 
         <motion.div variants={fadeUp} className="relative">
           <div
@@ -89,7 +98,7 @@ export const HeroSection = ({ inviteeName }: HeroSectionProps) => {
             className="relative z-10 italic text-[#b89556] leading-none mix-blend-multiply tracking-[-2px] text-[80px] md:text-[110px]"
             style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 96, 'wght' 500", marginBottom: "-40px" }}
           >
-            {EVENT_INFO.celebrantName}
+            {displayName}
           </h1>
         </motion.div>
 

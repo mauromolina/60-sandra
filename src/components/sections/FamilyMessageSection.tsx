@@ -6,8 +6,11 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { GoldDivider } from "@/components/ui/GoldDivider";
 import { GoldHeart } from "@/components/ui/GoldHeart";
 import { COPY } from "@/lib/constants/copy";
+import { useCelebrantName } from "@/contexts/CelebrantContext";
+import { withName } from "@/lib/utils/copyUtils";
 
 export const FamilyMessageSection = () => {
+  const celebrantName = useCelebrantName();
   const { ref, isInView } = useScrollAnimation();
 
   return (
@@ -24,7 +27,7 @@ export const FamilyMessageSection = () => {
       <div className="max-w-md mx-auto">
         <GoldHeart className="mx-auto mb-6 opacity-60" size={28} />
         <p className="font-serif text-lg md:text-xl text-charcoal-light italic leading-relaxed">
-          &ldquo;{COPY.familyMessage.message}&rdquo;
+          &ldquo;{withName(COPY.familyMessage.message, celebrantName)}&rdquo;
         </p>
       </div>
     </motion.section>

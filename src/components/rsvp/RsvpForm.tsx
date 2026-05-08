@@ -2,7 +2,6 @@
 
 import type { UseFormReturn } from "react-hook-form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { COPY } from "@/lib/constants/copy";
 import type { RsvpFormValues } from "@/lib/validators/rsvpSchema";
@@ -68,15 +67,6 @@ export const RsvpForm = ({ form, onSubmit, isSubmitting }: RsvpFormProps) => {
               max={10}
               {...form.register("companionsCount", { valueAsNumber: true })}
               className="bg-white/60 border-gold/15 focus:border-gold/40 font-serif text-charcoal w-24 h-12 rounded-xl"
-            />
-          </div>
-
-          <div>
-            <Textarea
-              placeholder={COPY.rsvp.dietaryPlaceholder}
-              {...form.register("dietaryRestrictions")}
-              rows={2}
-              className="bg-white/60 border-gold/15 focus:border-gold/40 font-serif italic text-charcoal placeholder:text-warm-gray/50 rounded-xl resize-none"
             />
           </div>
         </>
