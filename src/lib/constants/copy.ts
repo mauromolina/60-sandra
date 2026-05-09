@@ -64,7 +64,7 @@ export const COPY = {
   rsvp: {
     label: "Confirmación",
     title: "¿Vas a venir?",
-    subtitle: "Confirmá tu asistencia antes del 10 de mayo.",
+    subtitle: "Confirmá tu asistencia antes del 25 de mayo.",
     attendingLabel: "¡Sí, voy!",
     notAttendingLabel: "No puedo ir",
     nameLabel: "Nombre completo",

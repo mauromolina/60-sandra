@@ -30,9 +30,6 @@ const fadeIn = {
 };
 
 export const HeroSection = ({ inviteeName, celebrantAlias }: HeroSectionProps) => {
-  const greeting = inviteeName
-    ? `${COPY.hero.preTitle}, ${inviteeName}`
-    : COPY.hero.preTitle;
   const displayName = celebrantAlias || EVENT_INFO.celebrantName;
 
   return (
@@ -78,7 +75,7 @@ export const HeroSection = ({ inviteeName, celebrantAlias }: HeroSectionProps) =
           {inviteeName && (
             <p
               className="mt-2 text-2xl md:text-3xl italic text-gold/80 tracking-wide"
-              style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 72, 'wght' 800" }}
+              style={{ fontFamily: "var(--font-playfair)", fontWeight: 700 }}
             >
               {inviteeName}
             </p>
@@ -89,14 +86,14 @@ export const HeroSection = ({ inviteeName, celebrantAlias }: HeroSectionProps) =
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/4 -translate-y-[55%] text-[150px] md:text-[200px] leading-[1] select-none pointer-events-none text-[#b89556]/20"
             aria-hidden="true"
-            style={{ fontFamily: "var(--font-bodoni)", fontWeight: 700 }}
+            style={{ fontFamily: "var(--font-playfair)", fontWeight: 700 }}
           >
             {EVENT_INFO.age}
           </div>
 
           <h1
             className="relative z-10 italic text-[#b89556] leading-none mix-blend-multiply tracking-[-2px] text-[80px] md:text-[110px]"
-            style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 96, 'wght' 800", marginBottom: "-40px" }}
+            style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, marginBottom: "-40px" }}
           >
             {displayName}
           </h1>
@@ -113,6 +110,7 @@ export const HeroSection = ({ inviteeName, celebrantAlias }: HeroSectionProps) =
           {COPY.hero.subtitle}
         </motion.p>
       </motion.div>
+
     </section>
   );
 };

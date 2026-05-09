@@ -25,9 +25,10 @@ const PHOTOS = [
   },
   {
     year: "2026",
-    src: "/photos/4.jpeg",
+    src: "/photos/6.jpeg",
     rotation: "rotate-3",
     position: "center 15%",
+    scale: 1.2,
   },
 ];
 
@@ -59,8 +60,7 @@ export const TimelineSection = () => {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="italic text-3xl md:text-4xl text-gold mb-10"
         style={{
-          fontFamily: "var(--font-bodoni)",
-          fontVariationSettings: "'opsz' 72",
+          fontFamily: "var(--font-playfair)",
         }}
       >
         {COPY.timeline.label}
@@ -78,12 +78,19 @@ export const TimelineSection = () => {
             variants={polaroidVariant}
             className={`bg-white rounded-sm p-2.5 pb-8 shadow-lg shadow-charcoal/10 ${photo.rotation}`}
           >
-            <img
-              src={photo.src}
-              alt={photo.year}
-              className="aspect-square object-cover rounded-sm"
-              style={{ objectPosition: photo.position }}
-            />
+            <div className="aspect-square rounded-sm overflow-hidden">
+              <img
+                src={photo.src}
+                alt={photo.year}
+                className="w-full h-full object-cover"
+                style={{
+                  objectPosition: photo.position,
+                  ...("scale" in photo && {
+                    transform: `scale(${photo.scale})`,
+                  }),
+                }}
+              />
+            </div>
             <p className="mt-3 font-serif text-sm italic text-warm-gray tracking-wide">
               {photo.year}
             </p>

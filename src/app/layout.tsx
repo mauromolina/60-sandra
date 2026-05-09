@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Serif, Inter, Bodoni_Moda } from "next/font/google";
+import { Noto_Serif, Inter, Playfair_Display } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { Providers } from "@/components/Providers";
 import "./globals.css";
@@ -17,11 +17,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const bodoni = Bodoni_Moda({
-  variable: "--font-bodoni",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz"],
   display: "swap",
 });
 
@@ -44,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${notoSerif.variable} ${inter.variable} ${bodoni.variable} h-full antialiased`}
+      className={`${notoSerif.variable} ${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream">
         <Providers>

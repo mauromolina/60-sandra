@@ -33,7 +33,7 @@ export const CountdownSection = () => {
       {isPast ? (
         <p
           className="italic text-3xl text-gold"
-          style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 48" }}
+          style={{ fontFamily: "var(--font-playfair)" }}
         >
           {COPY.countdown.expired}
         </p>
