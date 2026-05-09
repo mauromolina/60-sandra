@@ -44,7 +44,7 @@ export const SpotifySection = () => {
 
       <div className="max-w-md mx-auto mb-10">
         <Music className="h-7 w-7 text-gold mx-auto mb-4 opacity-60" />
-        <h3 className="font-display text-3xl md:text-4xl text-charcoal mb-3 italic">
+        <h3 className="font-display text-3xl md:text-4xl text-charcoal mb-3 italic font-medium">
           {withName(COPY.spotify.sectionTitle, celebrantName)}
         </h3>
         <p className="font-sans text-sm text-charcoal-light leading-relaxed">

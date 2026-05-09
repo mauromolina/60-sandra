@@ -23,7 +23,7 @@ export const DressCodeSection = () => {
 
       <div className="flex flex-col items-center gap-3 max-w-sm mx-auto">
         <Shirt className="h-6 w-6 text-gold" />
-        <p className="font-serif text-xl text-charcoal italic">
+        <p className="font-serif text-xl text-charcoal italic font-medium">
           {COPY.dressCode.description}
         </p>
       </div>

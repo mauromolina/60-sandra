@@ -24,7 +24,7 @@ export const VenueSection = () => {
 
       <div className="flex flex-col items-center gap-4 max-w-sm mx-auto">
         <MapPin className="h-6 w-6 text-gold/60" strokeWidth={1.5} />
-        <h3 className="font-serif text-3xl md:text-4xl text-charcoal italic font-light">
+        <h3 className="font-serif text-3xl md:text-4xl text-charcoal italic font-medium">
           {VENUE.name}
         </h3>
         <p className="font-serif text-base text-charcoal-light tracking-wide">

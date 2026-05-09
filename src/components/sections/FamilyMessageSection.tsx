@@ -26,7 +26,7 @@ export const FamilyMessageSection = () => {
 
       <div className="max-w-md mx-auto">
         <GoldHeart className="mx-auto mb-6 opacity-60" size={28} />
-        <p className="font-serif text-lg md:text-xl text-charcoal-light italic leading-relaxed">
+        <p className="font-serif text-lg md:text-xl text-charcoal italic font-medium leading-relaxed">
           &ldquo;{withName(COPY.familyMessage.message, celebrantName)}&rdquo;
         </p>
       </div>

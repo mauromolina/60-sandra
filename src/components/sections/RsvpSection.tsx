@@ -30,7 +30,7 @@ export const RsvpSection = ({ invitee }: RsvpSectionProps) => {
       <GoldDivider className="mt-2 mb-6" />
 
       <div className="max-w-md mx-auto">
-        <h3 className="font-serif text-3xl md:text-4xl text-charcoal mb-2">
+        <h3 className="font-serif text-3xl md:text-4xl text-charcoal mb-2 font-medium">
           {COPY.rsvp.title}
         </h3>
         <p className="font-sans text-sm text-charcoal-light mb-8">
