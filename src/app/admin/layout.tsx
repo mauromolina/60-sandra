@@ -30,7 +30,7 @@ export default function AdminLayout({
             {COPY.admin.title}
           </h1>
           <p className="font-sans text-xs text-warm-gray mt-0.5">
-            Los 60 de Sandra
+            Sandra | Mis 60 años
           </p>
           <nav className="flex gap-1 mt-4">
             {navItems.map(({ href, label, icon: Icon }) => {

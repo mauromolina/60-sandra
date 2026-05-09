@@ -42,8 +42,12 @@ export default function AdminLoginPage() {
             <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-4">
               <Lock className="h-5 w-5 text-gold" />
             </div>
-            <h1 className="font-serif italic text-2xl text-charcoal">Administración</h1>
-            <p className="font-sans text-xs text-warm-gray mt-1">Los 60 de Sandra</p>
+            <h1 className="font-serif italic text-2xl text-charcoal">
+              Administración
+            </h1>
+            <p className="font-sans text-xs text-warm-gray mt-1">
+              Sandra | Mis 60 años
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -51,7 +55,10 @@ export default function AdminLoginPage() {
               <input
                 type="password"
                 value={password}
-                onChange={(e) => { setPassword(e.target.value); setError(""); }}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setError("");
+                }}
                 placeholder="Contraseña"
                 autoFocus
                 className="w-full px-4 py-3 text-sm font-sans rounded-xl border border-gold/15 bg-cream/50 text-charcoal placeholder:text-warm-gray/40 focus:outline-none focus:border-gold/40 transition-colors"

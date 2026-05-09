@@ -3,4 +3,5 @@ export interface Invitee {
   displayName: string;
   celebrantAlias?: string;
   allowsCompanion: boolean;
+  guestCount: number;
 }

@@ -26,11 +26,11 @@ const bodoni = Bodoni_Moda({
 });
 
 export const metadata: Metadata = {
-  title: "Los 60 de Sandra",
+  title: "Sandra | Mis 60 años",
   description:
     "Estás invitado/a a celebrar los 60 años de Sandra. Una noche especial para brindar juntos.",
   openGraph: {
-    title: "Los 60 de Sandra",
+    title: "Sandra | Mis 60 años",
     description: "Una noche especial para brindar juntos",
     type: "website",
   },

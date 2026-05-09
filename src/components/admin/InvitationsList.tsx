@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle, AlertTriangle, Clock, Users, Search } from "lucide-react";
+import { CreateInviteForm } from "./CreateInviteForm";
 import type { Invitee } from "@/lib/types/Invitee";
 import type { Rsvp } from "@/lib/types/Rsvp";
 
@@ -67,7 +68,10 @@ export const InvitationsList = ({ invitations }: InvitationsListProps) => {
     <>
       <div className="mb-4 space-y-3">
         <div className="flex items-center justify-between">
-          <h2 className="font-serif italic text-lg text-charcoal">Invitaciones</h2>
+          <div className="flex items-center gap-3">
+            <h2 className="font-serif italic text-lg text-charcoal">Invitaciones</h2>
+            <CreateInviteForm />
+          </div>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-warm-gray/50" />
             <input
@@ -118,6 +122,10 @@ export const InvitationsList = ({ invitations }: InvitationsListProps) => {
                   <div className="flex items-center gap-2 mt-0.5">
                     <p className="font-sans text-xs text-warm-gray/60">
                       {invitee.slug}
+                    </p>
+                    <span className="text-gold/20">·</span>
+                    <p className="font-sans text-xs text-warm-gray/60">
+                      {invitee.guestCount} {invitee.guestCount === 1 ? "invitado" : "invitados"}
                     </p>
                     {status === "confirmed" && rsvp && rsvp.companionsCount > 0 && (
                       <>

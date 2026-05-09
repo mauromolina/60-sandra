@@ -1,7 +1,7 @@
 export const COPY = {
   hero: {
     preTitle: "Invitación especial",
-    title: "Los 60 de Sandra",
+    title: "Sandra | Mis 60 años",
     subtitle: "Un brindis por las seis décadas de una vida extraordinaria.",
   },
   countdown: {
