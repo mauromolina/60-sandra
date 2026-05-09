@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
+import { CheckCircle, XCircle, Image } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { COPY } from "@/lib/constants/copy";
@@ -52,71 +53,87 @@ export default function AdminPhotosPage() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center py-12">
+      <div className="flex justify-center py-16">
         <LoadingSpinner />
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-      {photos.map((photo) => (
-        <div
-          key={photo.id}
-          className="bg-white rounded-xl border border-gold/10 overflow-hidden"
-        >
-          <img
-            src={photo.publicUrl}
-            alt={`Foto de ${photo.contributorName}`}
-            className="w-full h-40 object-cover"
-          />
-          <div className="p-3">
-            <p className="font-sans text-xs text-charcoal">
-              {photo.contributorName}
-            </p>
-            <span
-              className={`inline-block mt-1 font-sans text-[10px] px-2 py-0.5 rounded-full ${
-                photo.status === "approved"
-                  ? "bg-sage/10 text-sage-dark"
-                  : photo.status === "rejected"
-                    ? "bg-red-50 text-red-600"
-                    : "bg-gold/10 text-gold"
-              }`}
-            >
-              {photo.status === "approved"
-                ? COPY.admin.approved
-                : photo.status === "rejected"
-                  ? COPY.admin.rejected
-                  : COPY.admin.pending}
-            </span>
-            {photo.status === "pending" && (
-              <div className="flex gap-1 mt-2">
-                <Button
-                  size="sm"
-                  onClick={() => updateStatus(photo.id, "approved")}
-                  className="bg-sage hover:bg-sage-dark text-white text-xs h-7 px-2 flex-1"
-                >
-                  {COPY.admin.approve}
-                </Button>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => updateStatus(photo.id, "rejected")}
-                  className="text-xs h-7 px-2 border-red-200 text-red-600 hover:bg-red-50 flex-1"
-                >
-                  {COPY.admin.reject}
-                </Button>
-              </div>
-            )}
-          </div>
-        </div>
-      ))}
+    <div>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="font-serif italic text-lg text-charcoal">Fotos</h2>
+        <span className="font-sans text-xs text-warm-gray bg-white px-3 py-1.5 rounded-lg border border-gold/10">
+          {photos.length} {photos.length === 1 ? "foto" : "fotos"}
+        </span>
+      </div>
 
-      {photos.length === 0 && (
-        <p className="col-span-full text-center font-sans text-sm text-warm-gray py-8">
-          No hay fotos todavia.
-        </p>
-      )}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {photos.map((photo) => (
+          <div
+            key={photo.id}
+            className="bg-white rounded-2xl border border-gold/10 shadow-sm shadow-gold/5 overflow-hidden group"
+          >
+            <div className="relative">
+              <img
+                src={photo.publicUrl}
+                alt={`Foto de ${photo.contributorName}`}
+                className="w-full h-44 object-cover"
+              />
+              <span
+                className={`absolute top-2.5 right-2.5 font-sans text-[10px] font-medium px-2.5 py-1 rounded-full backdrop-blur-sm ${
+                  photo.status === "approved"
+                    ? "bg-sage/80 text-white"
+                    : photo.status === "rejected"
+                      ? "bg-red-500/80 text-white"
+                      : "bg-white/80 text-gold"
+                }`}
+              >
+                {photo.status === "approved"
+                  ? COPY.admin.approved
+                  : photo.status === "rejected"
+                    ? COPY.admin.rejected
+                    : COPY.admin.pending}
+              </span>
+            </div>
+            <div className="p-3.5">
+              <p className="font-sans text-xs font-medium text-charcoal">
+                {photo.contributorName}
+              </p>
+              {photo.status === "pending" && (
+                <div className="flex gap-2 mt-3">
+                  <Button
+                    size="sm"
+                    onClick={() => updateStatus(photo.id, "approved")}
+                    className="bg-sage hover:bg-sage-dark text-white text-xs h-8 rounded-lg flex-1 transition-all"
+                  >
+                    <CheckCircle className="h-3.5 w-3.5 mr-1.5" />
+                    {COPY.admin.approve}
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => updateStatus(photo.id, "rejected")}
+                    className="text-xs h-8 rounded-lg border-red-200/60 text-red-500 hover:bg-red-50 hover:text-red-600 hover:border-red-200 flex-1 transition-all"
+                  >
+                    <XCircle className="h-3.5 w-3.5 mr-1.5" />
+                    {COPY.admin.reject}
+                  </Button>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+
+        {photos.length === 0 && (
+          <div className="col-span-full py-16 text-center">
+            <Image className="h-8 w-8 text-warm-gray/30 mx-auto mb-3" />
+            <p className="font-sans text-sm text-warm-gray">
+              No hay fotos todavía.
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

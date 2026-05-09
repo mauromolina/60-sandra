@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const ADMIN_PATH_PREFIX = "/admin";
+const PUBLIC_ADMIN_PATHS = ["/admin/login", "/api/admin/login"];
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin", "/admin/:path*", "/api/admin/:path*"],
 };
 
 export function middleware(request: NextRequest): NextResponse {
-  if (!request.nextUrl.pathname.startsWith(ADMIN_PATH_PREFIX)) {
+  const { pathname } = request.nextUrl;
+
+  if (PUBLIC_ADMIN_PATHS.some((p) => pathname.startsWith(p))) {
     return NextResponse.next();
   }
 
@@ -17,28 +19,8 @@ export function middleware(request: NextRequest): NextResponse {
     return NextResponse.next();
   }
 
-  const adminPassword = process.env.ADMIN_PASSWORD;
-
-  if (!adminPassword) {
-    return new NextResponse("Server configuration error", { status: 500 });
-  }
-
-  const url = request.nextUrl.clone();
-  const passwordParam = url.searchParams.get("password");
-
-  if (passwordParam === adminPassword) {
-    url.searchParams.delete("password");
-    const response = NextResponse.redirect(url);
-    response.cookies.set("admin_auth", "authenticated", {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      maxAge: 60 * 60 * 24,
-    });
-    return response;
-  }
-
-  return new NextResponse("Unauthorized - provide password via ?password= parameter", {
-    status: 401,
-  });
+  const loginUrl = request.nextUrl.clone();
+  loginUrl.pathname = "/admin/login";
+  loginUrl.search = "";
+  return NextResponse.redirect(loginUrl);
 }

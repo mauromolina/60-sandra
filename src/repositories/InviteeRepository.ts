@@ -34,5 +34,5 @@ const mapRowToInvitee = (row: Record<string, unknown>): Invitee => ({
   slug: row.slug as string,
   displayName: row.display_name as string,
   celebrantAlias: (row.celebrant_alias as string) || undefined,
-  maxCompanions: row.max_companions as number,
+  allowsCompanion: (row.allows_companion as boolean) ?? false,
 });

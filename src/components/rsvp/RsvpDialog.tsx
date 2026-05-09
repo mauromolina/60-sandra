@@ -6,7 +6,6 @@ import {
 } from "@/components/ui/dialog";
 import { GoldDivider } from "@/components/ui/GoldDivider";
 import { RsvpForm } from "./RsvpForm";
-import { RsvpSuccessAnimation } from "./RsvpSuccessAnimation";
 import { useRsvpForm } from "@/hooks/useRsvpForm";
 import { COPY } from "@/lib/constants/copy";
 import type { Invitee } from "@/lib/types/Invitee";
@@ -18,8 +17,7 @@ interface RsvpDialogProps {
 }
 
 export const RsvpDialog = ({ isOpen, onClose, invitee }: RsvpDialogProps) => {
-  const { form, submit, isSubmitting, isSuccess } = useRsvpForm(invitee);
-  const attending = form.watch("attending");
+  const { form, submit, isSubmitting } = useRsvpForm(invitee);
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -31,16 +29,7 @@ export const RsvpDialog = ({ isOpen, onClose, invitee }: RsvpDialogProps) => {
           <GoldDivider />
         </div>
 
-        {isSuccess ? (
-          <RsvpSuccessAnimation
-            attending={attending}
-            fullName={form.getValues("fullName")}
-            companionsCount={form.getValues("companionsCount")}
-            dietaryRestrictions={form.getValues("dietaryRestrictions")}
-          />
-        ) : (
-          <RsvpForm form={form} onSubmit={submit} isSubmitting={isSubmitting} />
-        )}
+        <RsvpForm form={form} onSubmit={submit} isSubmitting={isSubmitting} allowsCompanion={invitee?.allowsCompanion ?? false} />
       </DialogContent>
     </Dialog>
   );

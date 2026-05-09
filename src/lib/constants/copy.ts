@@ -68,7 +68,7 @@ export const COPY = {
     attendingLabel: "¡Sí, voy!",
     notAttendingLabel: "No puedo ir",
     nameLabel: "Nombre completo",
-    companionsLabel: "¿Con cuántos acompañantes venís?",
+    companionsLabel: "¿Venís con un acompañante?",
     dietaryLabel: "¿Alguna restricción alimentaria?",
     dietaryPlaceholder: "Celíaco, vegetariano, etc.",
     submitButton: "Responder invitación",

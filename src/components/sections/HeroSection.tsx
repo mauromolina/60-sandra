@@ -78,7 +78,7 @@ export const HeroSection = ({ inviteeName, celebrantAlias }: HeroSectionProps) =
           {inviteeName && (
             <p
               className="mt-2 text-2xl md:text-3xl italic text-gold/80 tracking-wide"
-              style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 72", fontWeight: 700 }}
+              style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 72, 'wght' 800" }}
             >
               {inviteeName}
             </p>
@@ -96,7 +96,7 @@ export const HeroSection = ({ inviteeName, celebrantAlias }: HeroSectionProps) =
 
           <h1
             className="relative z-10 italic text-[#b89556] leading-none mix-blend-multiply tracking-[-2px] text-[80px] md:text-[110px]"
-            style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 96, 'wght' 500", marginBottom: "-40px" }}
+            style={{ fontFamily: "var(--font-bodoni)", fontVariationSettings: "'opsz' 96, 'wght' 800", marginBottom: "-40px" }}
           >
             {displayName}
           </h1>
