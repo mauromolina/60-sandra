@@ -11,7 +11,7 @@ export const SectionLabel = ({ children, className }: SectionLabelProps) => {
   return (
     <span
       className={cn(
-        "text-xs font-sans uppercase tracking-[0.25em] text-gold font-medium italic",
+        "text-xs font-sans uppercase tracking-[0.25em] text-gold-strong font-medium italic",
         className
       )}
     >

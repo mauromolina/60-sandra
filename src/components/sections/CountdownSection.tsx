@@ -24,7 +24,7 @@ export const CountdownSection = () => {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ delay: 0.2, duration: 0.6 }}
-        className="font-sans text-xs uppercase tracking-[0.25em] text-gold font-medium italic mb-4"
+        className="font-sans text-xs uppercase tracking-[0.25em] text-gold-strong font-medium italic mb-4"
       >
         {COPY.countdown.label}
       </motion.p>

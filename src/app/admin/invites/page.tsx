@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { RsvpRepository } from "@/repositories/RsvpRepository";
 import { InviteeRepository } from "@/repositories/InviteeRepository";
 import type { Rsvp } from "@/lib/types/Rsvp";

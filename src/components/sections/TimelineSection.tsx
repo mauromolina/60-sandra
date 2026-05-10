@@ -58,7 +58,7 @@ export const TimelineSection = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="italic text-3xl md:text-4xl text-gold mb-10"
+        className="italic text-3xl md:text-4xl text-gold-strong font-medium mb-10"
         style={{
           fontFamily: "var(--font-playfair)",
         }}

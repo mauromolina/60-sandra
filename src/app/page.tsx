@@ -14,7 +14,7 @@ export default function HomePage() {
       <CountdownSection />
       <DateTimeSection />
       <VenueSection />
-      <DressCodeSection />
+      {/* <DressCodeSection /> */}
       <TimelineSection />
       <FamilyMessageSection />
       <FooterSection />
