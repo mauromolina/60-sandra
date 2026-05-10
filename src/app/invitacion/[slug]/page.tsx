@@ -30,11 +30,14 @@ export default function PersonalizedInvitationPage() {
   return (
     <CelebrantProvider name={invitee?.celebrantAlias}>
       <main className="flex-1">
-        <HeroSection inviteeName={invitee?.displayName} celebrantAlias={invitee?.celebrantAlias} />
+        <HeroSection
+          inviteeName={invitee?.displayName}
+          celebrantAlias={invitee?.celebrantAlias}
+        />
         <CountdownSection />
         <DateTimeSection />
         <VenueSection />
-        <DressCodeSection />
+        {/* <DressCodeSection /> */}
         <TimelineSection />
         <FamilyMessageSection />
         <SpotifySection />
