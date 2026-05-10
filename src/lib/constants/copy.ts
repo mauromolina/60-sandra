@@ -16,7 +16,7 @@ export const COPY = {
     label: "Fecha y hora",
     date: "sábado 30 de mayo",
     year: "2026",
-    time: "21:30 HS",
+    time: "21:00 HS",
   },
   venue: {
     label: "Lugar",
